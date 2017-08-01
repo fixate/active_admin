@@ -7,7 +7,8 @@ module ActiveAdmin
       # the ORDER statement mentions a column defined in the SELECT statement.
       #
       # We remove the ORDER statement to work around this issue.
-      def collection_size(collection=collection)
+      def collection_size(collection=nil)
+        collection = self.collection if collection.nil?
         if collection.group_values.present?
           collection.reorder("").count # is a Hash
         else
@@ -15,7 +16,8 @@ module ActiveAdmin
         end.count
       end
 
-      def collection_is_empty?(collection=collection)
+      def collection_is_empty?(collection=nil)
+        collection = self.collection if collection.nil?
         collection_size(collection) == 0
       end
     end
