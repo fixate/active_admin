@@ -1,5 +1,5 @@
 class ActiveAdmin.CheckboxToggler
-  constructor: (@options, @container)->
+  constructor: (options, @container)->
     defaults = {}
     @options = $.extend defaults, options
     @_init()

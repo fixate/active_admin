@@ -1,6 +1,6 @@
 class ActiveAdmin.DropdownMenu
 
-  constructor: (@options, @element) ->
+  constructor: (options, @element) ->
     @$element = $(@element)
 
     defaults = {
